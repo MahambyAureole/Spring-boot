@@ -9,14 +9,14 @@ import java.util.List;
 
 @Service
 public class ProductService {
-    private ProductRepository reposProduit;
+    private final ProductRepository reposProduit;
 
     @Autowired
     public ProductService(ProductRepository reposProduit) {
         this.reposProduit = reposProduit;
     }
 
-    public void ajouterProd(Product prod){
+    public void saveProd(Product prod){
         reposProduit.save(prod);
     }
 
@@ -28,7 +28,7 @@ public class ProductService {
         reposProduit.deleteById(id);
     }
 
-    public Product getIdProd(int id){
+    public Product getProd(int id) {
         return reposProduit.findById(id).get();
     }
 }

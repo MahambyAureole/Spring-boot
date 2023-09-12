@@ -3,21 +3,21 @@ package com.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="commentaire")
+@Table(name="panier")
 public class Panier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPanier;
 
-    private int idUtil,idProd,nbrPanier;
+    private int idUtil,idProd,qttPanier;
 
     public Panier(){}
 
-    public Panier(int idPanier, int idUtil, int idProd, int nbrPanier) {
+    public Panier(int idPanier, int idUtil, int idProd, int qttPanier) {
         this.idPanier = idPanier;
         this.idUtil = idUtil;
         this.idProd = idProd;
-        this.nbrPanier = nbrPanier;
+        this.qttPanier = qttPanier;
     }
 
     public int getIdPanier() {
@@ -44,12 +44,12 @@ public class Panier {
         this.idProd = idProd;
     }
 
-    public int getNbrPanier() {
-        return nbrPanier;
+    public int getQttPanier() {
+        return qttPanier;
     }
 
-    public void setNbrPanier(int nbrPanier) {
-        this.nbrPanier = nbrPanier;
+    public void setQttPanier(int qttPanier) {
+        this.qttPanier = qttPanier;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class Panier {
                 "idPanier=" + idPanier +
                 ", idUtil=" + idUtil +
                 ", idProd=" + idProd +
-                ", nbrPanier=" + nbrPanier +
+                ", qttPanier=" + qttPanier +
                 '}';
     }
 }

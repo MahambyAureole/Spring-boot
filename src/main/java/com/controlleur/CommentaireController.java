@@ -24,18 +24,30 @@ public class CommentaireController {
 
     @PostMapping("/ajoutComs")
     public void ajoutCommentaire(@RequestBody Commentaire coms){
-        comsService.ajoutComs(coms);
+        try {
+            comsService.ajoutComs(coms);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @DeleteMapping("/deleteComs/{id}")
     public  List<Commentaire> deleteComs(@PathVariable int id){
-        comsService.deleteComs(id);
+        try{
+            comsService.deleteComs(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return afficheComs();
     }
 
     @PostMapping("/modifierComs")
     public List<Commentaire> modifierComs(@RequestBody Commentaire coms){
+        try {
         comsService.ajoutComs(coms);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return afficheComs();
     }
 }
